@@ -14,6 +14,34 @@ LICENSE: For authorized security assessments only.
 
 </div>
 
+<div align="center">
+
+# ROSELIA
+
+### NEXT-GENERATION SECURITY RESEARCH PROJECT
+
+<img src="https://img.shields.io/badge/ROSELIA-CORE%20ENGINE-9B59B6?style=for-the-badge&logo=github&logoColor=white" alt="ROSELIA">
+<img src="https://img.shields.io/badge/SECURITY-RESEARCH-DC143C?style=for-the-badge" alt="Security Research">
+<img src="https://img.shields.io/badge/DEVELOPMENT-ACTIVE-00C853?style=for-the-badge" alt="Development">
+<img src="https://img.shields.io/github/stars/sylhetyhackvenger/ROSELIA?style=for-the-badge&logo=github&color=E879F9" alt="Stars">
+<img src="https://img.shields.io/github/forks/sylhetyhackvenger/ROSELIA?style=for-the-badge&logo=github&color=8B5CF6" alt="Forks">
+<img src="https://img.shields.io/github/issues/sylhetyhackvenger/ROSELIA?style=for-the-badge&color=F43F5E" alt="Issues">
+<img src="https://img.shields.io/github/last-commit/sylhetyhackvenger/ROSELIA?style=for-the-badge&color=06B6D4" alt="Last Commit">
+
+<br><br>
+
+<strong>PRECISION • INNOVATION • SECURITY</strong>
+
+<p>
+An independent security research and development project
+built with a focus on technical precision and innovation.
+</p>
+
+<br>
+
+<sub>ROSELIA // SECURITY RESEARCH // DEVELOPMENT</sub>
+
+</div>
 ---
 
 Overview
