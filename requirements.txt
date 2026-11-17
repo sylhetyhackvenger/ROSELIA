@@ -1,0 +1,97 @@
+# ============================================================
+# RoseLia — Autonomous OTP / MFA Assessment Platform
+# AUTHOR : SYLHETYHACKVENGER (THE-ERROR808)
+# VERSION: 1.0.0
+# ============================================================
+# Install with:
+#   pip install -r requirements.txt
+#
+# For minimal (no TLS impersonation) install use:
+#   pip install -r requirements-minimal.txt
+# ============================================================
+
+
+# ------------------------------------------------------------
+# CORE (required — RoseLia will not run without these)
+# ------------------------------------------------------------
+aiohttp>=3.9.0,<4.0.0          # Async HTTP engine (primary fallback)
+aiosignal>=1.3.1               # aiohttp dependency pin
+attrs>=23.2.0                  # aiohttp dependency pin
+frozenlist>=1.4.1              # aiohttp dependency pin
+multidict>=6.0.4               # aiohttp dependency pin
+yarl>=1.9.4                    # aiohttp dependency pin
+async-timeout>=4.0.3; python_version < "3.11"
+                               # aiohttp timeout backport for py3.9/3.10
+
+
+# ------------------------------------------------------------
+# TLS IMPERSONATION (strongly recommended)
+# ------------------------------------------------------------
+# Enables browser-grade TLS fingerprints (Chrome/Firefox/Safari),
+# which bypass Cloudflare / Akamai / DataDome bot detection.
+# RoseLia auto-detects this at import time and uses it when present.
+curl_cffi>=0.7.0               # Async + sync TLS impersonation
+cffi>=1.16.0                   # curl_cffi dependency pin
+certifi>=2024.2.2              # CA bundle used by curl_cffi
+pycparser>=2.21                # cffi dependency pin
+
+
+# ------------------------------------------------------------
+# SYNCHRONOUS FALLBACK (recommended)
+# ------------------------------------------------------------
+# Used by the RotatingSession if curl_cffi sync mode is unavailable.
+requests>=2.31.0,<3.0.0        # Sync HTTP fallback
+urllib3>=2.1.0,<3.0.0          # requests dependency pin
+charset-normalizer>=3.3.0      # requests dependency pin
+idna>=3.6                      # requests dependency pin
+
+
+# ------------------------------------------------------------
+# ANALYSIS EXTENSIONS (recommended — enable extra probes)
+# ------------------------------------------------------------
+# pyjwt: enables JWT analysis (weak key brute-force, alg=none)
+# esprima: enables AST-based constant extraction from JS bundles
+PyJWT>=2.8.0                   # JWT decode/verify for jwt probe
+esprima>=4.0.1                 # JS AST parser for api(ast) extraction
+
+
+# ------------------------------------------------------------
+# NETWORK / SECURITY UTILITIES
+# ------------------------------------------------------------
+# Not strictly required but improve reliability in edge cases.
+dnspython>=2.6.0               # DNS resolution for SAN takeover probe
+pyOpenSSL>=24.0.0              # TLS SAN parsing on platforms where
+                               # stdlib ssl.getpeercert() is restricted
+idna-ssl>=1.1.0; python_version < "3.10"
+                               # IDN handling for legacy interpreters
+
+
+# ------------------------------------------------------------
+# TERMINAL / OUTPUT
+# ------------------------------------------------------------
+# RoseLia emits ANSI escape codes directly; colorama is only
+# needed on legacy Windows consoles (pre-Windows Terminal).
+colorama>=0.4.6; platform_system == "Windows"
+                               # ANSI → Win32 translation (Windows only)
+
+
+# ------------------------------------------------------------
+# OPTIONAL: PROXY SUPPORT
+# ------------------------------------------------------------
+ aiohttp-socks: enables SOCKS5 proxies for the aiohttp fallback.
+# curl_cffi already supports SOCKS5 natively, so this is only
+# needed when curl_cffi is not installed.
+aiohttp-socks>=0.8.4           # SOCKS proxy for aiohttp fallback
+
+
+# ------------------------------------------------------------
+# DEVELOPMENT / TESTING (optional — safe to omit in production)
+# ------------------------------------------------------------
+# Uncomment if you plan to run the test suite or contribute.
+pytest>=8.0.0
+ pytest-asyncio>=0.23.0
+ pytest-aiohttp>=1.0.5
+ flake8>=7.0.0
+mypy>=1.8.0
+black>=24.1.0
+ isort>=5.13.0
